@@ -2,6 +2,7 @@ package ch.mgb.tdi.kafka.test.springjavactrlkafka;
 
 import io.github.javactrl.kafka.WorkflowProcessorSupplier;
 import io.github.javactrl.rt.CThrowable;
+import io.github.javactrl.rt.Ctrl;
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
@@ -19,18 +20,18 @@ import java.util.Properties;
 import static io.github.javactrl.kafka.Workflow.*;
 import static org.apache.kafka.streams.StreamsConfig.*;
 
+@Ctrl
 @Component
 public class Workflow {
     private KafkaStreams kafkaStreams;
     private static final Serde<String> STRING_SERDE = Serdes.String();
-    private ReadOnlyKeyValueStore<String, Long> readOnlyKeyValueStore;
 
     public static void workflow(final String parameterString) throws CThrowable {
         final var stepVar1 = newVar("step1");
         final var inputString1 = await(stepVar1);
         final var inputInt1 = Integer.parseInt(inputString1);
         final var resultInt1 = inputInt1 + 1;
-        System.out.println("This code is only run once per Workflow execution :-");;
+        System.out.println("This code is only run once per Workflow execution :-");
         //
         final var stepVar2 = newVar("step2");
         await(stepVar2);

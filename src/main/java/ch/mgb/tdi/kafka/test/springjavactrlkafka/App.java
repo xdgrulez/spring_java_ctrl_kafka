@@ -1,8 +1,10 @@
 package ch.mgb.tdi.kafka.test.springjavactrlkafka;
 
+import io.github.javactrl.rt.Ctrl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@Ctrl
 @SpringBootApplication
 public class App {
 	public static void main(String[] args) {
