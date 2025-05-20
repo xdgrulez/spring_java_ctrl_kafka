@@ -33,7 +33,7 @@ dependencies {
 
 bootRun {
 	println(configurations.javactrl.iterator().next())
-	jvmArgs(["-javaagent:${configurations.javactrl.iterator().next()}"])
+	jvmArgs "-javaagent:${configurations.javactrl.iterator().next()}"
 }
 
 tasks.named('test') {
