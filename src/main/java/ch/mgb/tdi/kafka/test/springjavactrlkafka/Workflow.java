@@ -47,7 +47,7 @@ public class Workflow {
 
         Properties props = new Properties();
         props.put(BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(APPLICATION_ID_CONFIG, "wordcount-app");
+        props.put(APPLICATION_ID_CONFIG, "minimal-app");
         props.put(DEFAULT_KEY_SERDE_CLASS_CONFIG, STRING_SERDE.getClass().getName());
         props.put(DEFAULT_VALUE_SERDE_CLASS_CONFIG, STRING_SERDE.getClass().getName());
         props.put(STATE_DIR_CONFIG, "/tmp/kafka-streams");
