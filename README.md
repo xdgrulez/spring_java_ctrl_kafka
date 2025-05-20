@@ -1,22 +1,22 @@
-# Getting Started
+# Spring javactrl-kafka
 
-### Reference Documentation
-For further reference, please consider the following sections:
+Minimal test for using javactrl-kafka in conjunction with Spring Boot.
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/3.4.5/gradle-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.4.5/gradle-plugin/packaging-oci-image.html)
-* [Spring for Apache Kafka](https://docs.spring.io/spring-boot/3.4.5/reference/messaging/kafka.html)
-* [Apache Kafka Streams Support](https://docs.spring.io/spring-kafka/reference/streams.html)
-* [Apache Kafka Streams Binding Capabilities of Spring Cloud Stream](https://docs.spring.io/spring-cloud-stream/reference/kafka/kafka-streams-binder/usage.html)
+Sets up a minimal workflow consisting of two steps.
 
-### Guides
-The following guides illustrate how to use some features concretely:
+# Setup
 
-* [Samples for using Apache Kafka Streams with Spring Cloud stream](https://github.com/spring-cloud/spring-cloud-stream-samples/tree/master/kafka-streams-samples)
+1. Set up a local Kafka cluster e.g. using the Confluent Platform Quick Start `docker-compose.yml` (https://docs.confluent.io/platform/current/get-started/platform-quickstart.html).
+2. Install kafi (https://github.com/xdgrulez/kafi).
+3. Run the Python script `init.py` to (re-)create the three Kafka topics used by the app.
+4. Run the app (`./gradlew bootRun`).
+5. Run the Python script `produce.py` to produce some messages to the `workflow-resume` topic to execute the workflow.
+6. Run the Python script `list.py` to see the lengths of the topics used by the app, or
+7. Run the Python script `result.py` to show the content of the result topic.
 
-### Additional Links
-These additional references should also help you:
+# REST endpoints
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+The app has two REST GET endpoints:
 
+* `localhost:8080/workflows` returns the list of workflow IDs (`test.py` creates IDs based on timestamps)
+* `localhost:8080/workflows/{id}` returns the workflow with ID `id`
