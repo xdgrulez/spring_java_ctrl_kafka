@@ -20,3 +20,7 @@ The app has two REST GET endpoints:
 
 * `localhost:8080/workflows` returns the list of workflow IDs (`test.py` creates IDs based on timestamps)
 * `localhost:8080/workflows/{id}` returns the workflow with ID `id`
+
+# Issues
+
+Currently, the app always returns `not available thread {ID}` after the second message was sent in `produce.py`.
