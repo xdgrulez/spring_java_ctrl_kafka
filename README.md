@@ -23,4 +23,4 @@ The app has two REST GET endpoints:
 
 # Issues
 
-Currently, the app always returns `not available thread {ID}` after the second message was sent in `produce.py`.
+In some environments (e.g. IntelliJ + Gradle Runner; it works if you use IntelliJ + IntelliJ IDEA Runner) the app does not work and returns `not available thread {ID}` after the second message was sent in `produce.py`.

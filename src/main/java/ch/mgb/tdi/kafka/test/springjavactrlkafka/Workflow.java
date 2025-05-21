@@ -31,7 +31,7 @@ public class Workflow {
         final var inputString1 = await(stepVar1);
         final var inputInt1 = Integer.parseInt(inputString1);
         final var resultInt1 = inputInt1 + 1;
-        System.out.println("This code is only run once per Workflow execution :-");
+        System.out.println("This code is only run once per Workflow execution :-)");
         //
         final var stepVar2 = newVar("step2");
         await(stepVar2);
